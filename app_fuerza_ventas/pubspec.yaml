@@ -1,0 +1,96 @@
+name: s11_app_flutter_fventas
+description: "App Fuerza de Ventas — Banco Andino. Oficiales de credito en campo."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cloud_firestore: ^5.0.0 
+  # --- Estado (MVVM: ViewModel = StateNotifier) ---
+  flutter_riverpod: ^2.5.1
+  firebase_core: ^3.0.0
+
+  # --- Backend remoto: API REST del backend FastAPI mobile (puerto 8003) ---
+  http: ^1.2.0
+
+  # --- Persistencia local / offline-first ---
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  flutter_secure_storage: ^9.2.2
+
+  # --- Navegacion ---
+  go_router: ^14.0.0
+
+  # --- Red y formato ---
+  connectivity_plus: ^6.0.5
+  intl: ^0.19.0
+
+  # --- Acciones del dispositivo (marcador telefonico, RF-29) ---
+  url_launcher: ^6.3.0
+
+  # --- Graficos (M11 reportes) ---
+  fl_chart: ^0.69.0
+
+  # --- Captura de fotos de documentos (M6) ---
+  image_picker: ^1.1.2
+  image: ^4.2.0  # validacion de nitidez (varianza de Laplaciano, RF-54)
+
+  # --- PDF de estado para compartir (M9 / RF-71) ---
+  pdf: ^3.11.1
+  printing: ^5.13.2
+
+  # --- GPS de gestiones (M10/RF-77) y alerta de compromiso (RF-78) ---
+  geolocator: ^12.0.0
+  flutter_local_notifications: ^17.2.3
+  timezone: ^0.9.4  # zonedSchedule de la alerta de compromiso (RF-78)
+
+  # --- Mapa de ruta (M2 / RF-19) ---
+  google_maps_flutter: ^2.9.0
+
+  # --- Geocodificacion inversa de la ubicacion del negocio (HU-10 / RF-26) ---
+  geocoding: ^3.0.0
+
+  # --- Sincronizacion nocturna de cartera en background (HU-05 / RF-13) ---
+  workmanager: ^0.9.0+3
+
+  # =====================================================================
+  # Dependencias por modulo — se habilitan al implementar cada feature.
+  # Requieren config nativa adicional (API keys, permisos, google-services).
+  # Mantener comentadas evita romper el build mientras no se usan.
+  # ---------------------------------------------------------------------
+  # M2 Ruta:
+  #   google_maps_flutter: ^2.9.0   # API key en AndroidManifest
+  #   geolocator: ^12.0.0
+  #   geocoding: ^3.0.0
+  # M6 Documentos:
+  #   camera: ^0.11.0               # permisos de camara
+  #   image_picker: ^1.1.2
+  #   image: ^4.2.0
+  # M3/M11 Graficos:
+  #   fl_chart: ^0.68.0
+  # M5/M7 Firma:
+  #   signature: ^5.4.1
+  # M8/M9 PDF:
+  #   pdf: ^3.11.1
+  #   printing: ^5.13.2
+  # M5/M9 Notificaciones:
+  #   flutter_local_notifications: ^17.2.2
+  #   firebase_core: ^3.0.0         # google-services.json obligatorio
+  #   firebase_messaging: ^15.1.3
+  # M1 Sincronizacion nocturna:
+  #   workmanager: ^0.5.2
+  # =====================================================================
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/logo_ripley.png
