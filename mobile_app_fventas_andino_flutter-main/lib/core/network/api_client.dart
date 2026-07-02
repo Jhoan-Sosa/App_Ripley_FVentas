@@ -20,7 +20,7 @@ class ApiClient {
   // ============================================================
   
   // OPCIÓN 1: USB (RECOMENDADO) - Ejecuta 'adb reverse tcp:8003 tcp:8003'
-  static const String baseUrl = 'http://localhost:8003';
+  static const String baseUrl = 'https://banco-ripley-backend.onrender.com';
   
   // OPCIÓN 2: Emulador Android
   // static const String baseUrl = 'http://10.0.2.2:8003';
